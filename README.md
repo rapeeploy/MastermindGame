@@ -1,2 +1,0 @@
-# MastermindGame
-OOP-Project

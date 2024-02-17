@@ -2,6 +2,7 @@ package gameFolder;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridBagLayout;
 
@@ -230,16 +231,26 @@ public class GameFrame extends JFrame {
 
         scoreLabel = new JLabel(); 
         scoreLabel.setText("TOTAL SCORE");
+        //TODO 
+        JPanel totalScorePanel = new JPanel();
+        totalScorePanel.setLayout(new FlowLayout());
+        totalScorePanel.setPreferredSize(new Dimension(150,100));
+        totalScorePanel.setBackground(Color.WHITE);
+
         scoreLabel.setHorizontalAlignment(JLabel.CENTER);
-        scoreLabel.setBorder(new EmptyBorder(20, 0, 0, 0));
-        scoreLabel.setPreferredSize(new Dimension(150, 40));
+        scoreLabel.setBorder(new EmptyBorder(0, 0, 0, 0));
+        scoreLabel.setPreferredSize(new Dimension(150, 20));
 
         scoreTextField = new JTextField();
         scoreTextField.setText("0");
         scoreTextField.setFont(new Font(null, 0, 50));
+        scoreTextField.setBackground(null);
         scoreTextField.setHorizontalAlignment(JTextField.CENTER);
         scoreTextField.setPreferredSize(new Dimension(150, 80));
         scoreTextField.setEditable(false);
+
+        totalScorePanel.add(scoreLabel);
+        totalScorePanel.add(scoreTextField);
 
         infoPanel = new JPanel();
         infoPanel.setPreferredSize(new Dimension(150, 100));
@@ -257,8 +268,9 @@ public class GameFrame extends JFrame {
         infoPanel.add(infoLabel);
 
         scorePanel.add(newGameButton);
-        scorePanel.add(scoreLabel);
-        scorePanel.add(scoreTextField);
+        // scorePanel.add(scoreLabel);
+        // scorePanel.add(scoreTextField);
+        scorePanel.add(totalScorePanel);
         scorePanel.add(infoPanel);
 
     }
