@@ -58,16 +58,16 @@ public class GameFrame extends JFrame {
     
     GameFrame(String s) {
         this.setTitle(s);
-        this.getContentPane().setBackground(new Color(80, 72, 103));
+        this.getContentPane().setBackground(new Color(59,70,100));
 
         // *set Panels bounds */
         hPanel = new JPanel();
         hPanel.setLayout(new GridBagLayout());
         hPanel.setBounds(0, 0, 1440, 120);
-        hPanel.setBackground(new Color(40, 36, 48));
+        hPanel.setBackground(new Color(30, 38, 60));
 
-        header.setFont(new Font(null, 0, 50));
-        header.setForeground(new Color(229, 216, 106));
+        header.setFont(new Font(null, 1, 50));
+        header.setForeground(new Color(246, 251, 69));
         hPanel.add(header);
 
         ansPanel = new JPanel();
@@ -177,6 +177,7 @@ public class GameFrame extends JFrame {
         submitButton = new JButton();
         submitButton.setPreferredSize(new Dimension(150, 90));
         submitButton.setText("Submit");
+        submitButton.setBackground(new Color(255,149,181));
 
         b0Button = new JButton();
         // b0Button.addActionListener(this);
@@ -254,7 +255,7 @@ public class GameFrame extends JFrame {
 
         infoPanel = new JPanel();
         infoPanel.setPreferredSize(new Dimension(150, 100));
-        infoPanel.setBackground(Color.LIGHT_GRAY);
+        infoPanel.setBackground(new Color(254,202,49 ));
 
         elementCheckField = new CheckAnsField();
         positionCheckField = new CheckAnsField();
