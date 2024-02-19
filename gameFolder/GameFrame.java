@@ -34,6 +34,7 @@ public class GameFrame extends JFrame {
     protected JButton b4Button;
     protected JButton b5Button;
     protected JButton submitButton;
+    protected JButton deleteButton;
 
     protected groupOfBoxes ansGrp = new groupOfBoxes(80, 80, 40);
 
@@ -144,11 +145,9 @@ public class GameFrame extends JFrame {
         inputAnsPanel.setLayout(new BoxLayout(inputAnsPanel, BoxLayout.X_AXIS));
         // *set icon */
 
-        System.out.println(youransBoxes[0]);
         for (JPanel t : youransBoxes) {
             for (int i = 0; i < 5; i++) {
                 ((groupOfBoxes) t).setBoxIcon(i, tmp60);
-                // ((groupOfBoxes) t).setForeground(Color.WHITE);
             }
         }
 
@@ -174,8 +173,14 @@ public class GameFrame extends JFrame {
 
     private void setBtnPanels() {
         myIcon ic = new myIcon();
+
+        deleteButton = new JButton();
+        deleteButton.setPreferredSize(new Dimension(75,90));
+        deleteButton.setText("delete");
+        deleteButton.setBackground(new Color(255,149,181));
+
         submitButton = new JButton();
-        submitButton.setPreferredSize(new Dimension(150, 90));
+        submitButton.setPreferredSize(new Dimension(75, 90));
         submitButton.setText("Submit");
         submitButton.setBackground(new Color(255,149,181));
 
@@ -217,7 +222,8 @@ public class GameFrame extends JFrame {
         btnPanel.add(b3Button);
         btnPanel.add(b4Button);
         btnPanel.add(b5Button);
-
+        
+        btnPanel.add(deleteButton);
         btnPanel.add(submitButton);
 
     }
@@ -232,7 +238,7 @@ public class GameFrame extends JFrame {
 
         scoreLabel = new JLabel(); 
         scoreLabel.setText("TOTAL SCORE");
-        //TODO 
+        
         JPanel totalScorePanel = new JPanel();
         totalScorePanel.setLayout(new FlowLayout());
         totalScorePanel.setPreferredSize(new Dimension(150,100));
@@ -290,7 +296,7 @@ class myIcon{
 
     {
         tmp[0] = new ImageIcon("gameImage\\Rectangle6060.png");
-        tmp[0] = new ImageIcon("gameImage\\whiteBox80.png");
+        tmp[1] = new ImageIcon("gameImage\\whiteBox80.png");
 
         icon_60[0] = new ImageIcon("gameImage\\icon0_60.png");
         icon_60[1] = new ImageIcon("gameImage\\icon1_60.png");
