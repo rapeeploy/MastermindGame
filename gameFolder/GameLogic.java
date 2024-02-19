@@ -51,6 +51,7 @@ public class GameLogic {
         } else if(MAX_GUESSES - numGuesses == 0) {
             System.out.println("Sorry, you've run out of guesses. The secret code was:");
             printCode(secretCode);
+            // guessedCorrectly = true;
             return;
         }
 
@@ -102,11 +103,13 @@ public class GameLogic {
         } else if (guessedCorrectly && numGuesses > 1) {
             // Guessed correctly after the first round
             return 30 - 2 * (numGuesses - 1);
-        } else {
+        } else if (!guessedCorrectly) {
+            
             // Game ended without correct guess
             return (3 * exactMatches) + colorMatches;
-            // return 0;
         }
+
+        return 999;
     }
     
     protected static void printCode(int[] code) {

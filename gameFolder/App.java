@@ -81,11 +81,11 @@ public class App extends GameLogic {
                 }
 
                 /* when game is over */
-                if (guessedCorrectly) {
+                if (guessedCorrectly || numGuesses == MAX_GUESSES) {
                     for (int i = 0; i < 5; i++) {
                         frame.showAns(i, ic.getIcon(secretCode[i], 80));
-                        frame.showScore(calculatePoints(numGuesses, guessedCorrectly, feedback[0], feedback[1]));
                     }
+                    frame.showScore(calculatePoints(numGuesses, guessedCorrectly, feedback[0], feedback[1]));
                 }
                 showCheckedTf();
                 codeInputArr.clear();
