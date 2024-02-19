@@ -98,11 +98,10 @@ public class App extends GameLogic {
                 if (codeInputArr.size() < 1) {
                     return;
                 }
+
                 codeInputArr.remove(codeInputArr.size()-1);
-                ((groupOfBoxes) frame.youransBoxes[numGuesses]).setBoxIcon(codeInputArr.size(),
-                            ic.getTmpIcon(60));
+                ((groupOfBoxes) frame.youransBoxes[numGuesses]).setBoxIcon(codeInputArr.size(),ic.getTmpIcon(60));
             }
-            
         });
 
 

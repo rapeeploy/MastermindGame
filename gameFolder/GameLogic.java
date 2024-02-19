@@ -49,7 +49,6 @@ public class GameLogic {
             System.out.println("Congratulations! You've guessed the secret code in " + numGuesses + " guesses!");
             return;
         } else if(MAX_GUESSES - numGuesses == 0) {
-            guessedCorrectly = true;
             System.out.println("Sorry, you've run out of guesses. The secret code was:");
             printCode(secretCode);
             return;
@@ -106,6 +105,7 @@ public class GameLogic {
         } else {
             // Game ended without correct guess
             return (3 * exactMatches) + colorMatches;
+            // return 0;
         }
     }
     
