@@ -25,8 +25,6 @@ public class GameLogic {
     }
 
     protected void playGame() {
-        // isGameOver = false;
-        // Start game
         if (!guessedCorrectly) {
             System.out.println("Enter your guess (e.g., 0 1 2 3 4):");
             ArrayList<Integer> guess = App.codeInputArr;
@@ -46,8 +44,6 @@ public class GameLogic {
             }
             numGuesses++;
         }
-
-        // int pointsEarned = calculatePoints(numGuesses, guessedCorrectly, feedback[0], feedback[1]);
 
         if (guessedCorrectly) {
             System.out.println("Congratulations! You've guessed the secret code in " + numGuesses + " guesses!");

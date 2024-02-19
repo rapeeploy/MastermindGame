@@ -34,6 +34,7 @@ public class GameFrame extends JFrame {
     protected JButton b4Button;
     protected JButton b5Button;
     protected JButton submitButton;
+    protected JButton deleteButton;
 
     protected groupOfBoxes ansGrp = new groupOfBoxes(80, 80, 40);
 
@@ -51,7 +52,6 @@ public class GameFrame extends JFrame {
     JPanel[] youransBoxes = new groupOfBoxes[7];
     JTextField[] positionTf = new CheckAnsField[7];
     JTextField[] elementTf = new CheckAnsField[7];
-
     
     Icon tmp60 = new ImageIcon("gameImage\\Rectangle6060.png");
     Icon tmp80 = new ImageIcon("gameImage\\whiteBox80.png");
@@ -126,10 +126,6 @@ public class GameFrame extends JFrame {
         scoreTextField.setText(i+"");
     }
     
-    // protected JLabel get_yourAnsBox (int r, int index) {
-    //     return ((groupOfBoxes)youransBoxes[r]).getBoxLabel(index);
-    // }
-
     // *create "group of Boxes" | "check tf" in array */
     {
         for (int i = 0; i < 7; i++) {
@@ -144,11 +140,9 @@ public class GameFrame extends JFrame {
         inputAnsPanel.setLayout(new BoxLayout(inputAnsPanel, BoxLayout.X_AXIS));
         // *set icon */
 
-        System.out.println(youransBoxes[0]);
         for (JPanel t : youransBoxes) {
             for (int i = 0; i < 5; i++) {
                 ((groupOfBoxes) t).setBoxIcon(i, tmp60);
-                // ((groupOfBoxes) t).setForeground(Color.WHITE);
             }
         }
 
@@ -174,42 +168,40 @@ public class GameFrame extends JFrame {
 
     private void setBtnPanels() {
         myIcon ic = new myIcon();
+
+        deleteButton = new JButton();
+        deleteButton.setPreferredSize(new Dimension(75,90));
+        deleteButton.setText("delete");
+        deleteButton.setBackground(new Color(255,149,181));
+
         submitButton = new JButton();
-        submitButton.setPreferredSize(new Dimension(150, 90));
+        submitButton.setPreferredSize(new Dimension(75, 90));
         submitButton.setText("Submit");
         submitButton.setBackground(new Color(255,149,181));
 
         b0Button = new JButton();
-        // b0Button.addActionListener(this);
         b0Button.setPreferredSize(new Dimension(90, 90));
         b0Button.setIcon(ic.getIcon(0, 90));
-        // b0Button.setText("1");
 
         b1Button = new JButton();
         b1Button.setPreferredSize(new Dimension(90, 90));
         b1Button.setIcon(ic.getIcon(1, 90));
-        // b1Button.setText("2");
 
         b2Button = new JButton();
         b2Button.setPreferredSize(new Dimension(90, 90));
-        // b2Button.setIcon(ic.getIcon(3, 90));
         b2Button.setIcon(ic.getIcon(2, 90));
-        // b2Button.setText("3");
 
         b3Button = new JButton();
         b3Button.setPreferredSize(new Dimension(90, 90));
         b3Button.setIcon(ic.getIcon(3, 90));
-        // b3Button.setText("4");
 
         b4Button = new JButton();
         b4Button.setPreferredSize(new Dimension(90, 90));
         b4Button.setIcon(ic.getIcon(4, 90));
-        // b4Button.setText("5");
 
         b5Button = new JButton();
         b5Button.setPreferredSize(new Dimension(90, 90));
         b5Button.setIcon(ic.getIcon(5, 90));
-        // b5Button.setText("6");
 
         btnPanel.add(b0Button);
         btnPanel.add(b1Button);
@@ -217,13 +209,13 @@ public class GameFrame extends JFrame {
         btnPanel.add(b3Button);
         btnPanel.add(b4Button);
         btnPanel.add(b5Button);
-
+        
+        btnPanel.add(deleteButton);
         btnPanel.add(submitButton);
 
     }
 
     protected void setScorePanels() {
-
         scorePanel.setBorder(new EmptyBorder(90, 10, 10, 10));
 
         newGameButton = new JButton("new game", null);
@@ -232,7 +224,7 @@ public class GameFrame extends JFrame {
 
         scoreLabel = new JLabel(); 
         scoreLabel.setText("TOTAL SCORE");
-        //TODO 
+        
         JPanel totalScorePanel = new JPanel();
         totalScorePanel.setLayout(new FlowLayout());
         totalScorePanel.setPreferredSize(new Dimension(150,100));
@@ -269,9 +261,7 @@ public class GameFrame extends JFrame {
         infoPanel.add(infoLabel);
 
         scorePanel.add(newGameButton);
-        // scorePanel.add(scoreLabel);
-        // scorePanel.add(scoreTextField);
-        scorePanel.add(totalScorePanel);
+        scorePanel.add(totalScorePanel); //scoreLabel+Tf
         scorePanel.add(infoPanel);
 
     }
@@ -290,7 +280,7 @@ class myIcon{
 
     {
         tmp[0] = new ImageIcon("gameImage\\Rectangle6060.png");
-        tmp[0] = new ImageIcon("gameImage\\whiteBox80.png");
+        tmp[1] = new ImageIcon("gameImage\\whiteBox80.png");
 
         icon_60[0] = new ImageIcon("gameImage\\icon0_60.png");
         icon_60[1] = new ImageIcon("gameImage\\icon1_60.png");

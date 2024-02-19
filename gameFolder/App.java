@@ -4,23 +4,23 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
 public class App extends GameLogic {
-    GameFrame frame = new GameFrame("OOPProject");
+    GameFrame frame = new GameFrame("Mastermindcat");
     static ArrayList<Integer> codeInputArr = new ArrayList<>();
 
     myIcon ic = new myIcon();
 
     public App() {
-        // frame.setIconImage(new ImageIcon( ));
+        frame.setIconImage(new ImageIcon("gameImage\\gameLogo.PNG").getImage());
         frame.setSize(1440, 810);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(null);
         frame.setResizable(false);
         frame.setLocationRelativeTo(null);
         addActionListenerToBtn();
-        // method1();
         frame.setVisible(true);
     }
 
@@ -34,36 +34,28 @@ public class App extends GameLogic {
                     return;
                 }
 
-                //ToDO
-
                 if (e.getSource() == frame.b0Button) {
                     codeInputArr.add(0);
-                    // frame.get_yourAnsBox(numGuesses, codeInputArr.size() - 1).setIcon(ic.getIcon(0,60));
                     ((groupOfBoxes) frame.youransBoxes[numGuesses]).setBoxIcon(codeInputArr.size() - 1,
                             ic.getIcon(0, 60));
                 } else if (e.getSource() == frame.b1Button) {
                     codeInputArr.add(1);
-                    // frame.get_yourAnsBox(numGuesses, codeInputArr.size() - 1).setIcon(ic.getIcon(1,60));
                     ((groupOfBoxes) frame.youransBoxes[numGuesses]).setBoxIcon(codeInputArr.size() - 1,
                             ic.getIcon(1, 60));
                 } else if (e.getSource() == frame.b2Button) {
                     codeInputArr.add(2);
-                    // frame.get_yourAnsBox(numGuesses, codeInputArr.size() - 1).setIcon(ic.getIcon(2,60));
                     ((groupOfBoxes) frame.youransBoxes[numGuesses]).setBoxIcon(codeInputArr.size() - 1,
                             ic.getIcon(2, 60));
                 } else if (e.getSource() == frame.b3Button) {
                     codeInputArr.add(3);
-                    // frame.get_yourAnsBox(numGuesses, codeInputArr.size() - 1).setIcon(ic.getIcon(3,60));
                     ((groupOfBoxes) frame.youransBoxes[numGuesses]).setBoxIcon(codeInputArr.size() - 1,
                             ic.getIcon(3, 60));
                 } else if (e.getSource() == frame.b4Button) {
                     codeInputArr.add(4);
-                    // frame.get_yourAnsBox(numGuesses, codeInputArr.size() - 1).setIcon(ic.getIcon(4,60));
                     ((groupOfBoxes) frame.youransBoxes[numGuesses]).setBoxIcon(codeInputArr.size() - 1,
                             ic.getIcon(4, 60));
                 } else if (e.getSource() == frame.b5Button) {
                     codeInputArr.add(5);
-                    // frame.get_yourAnsBox(numGuesses, codeInputArr.size() - 1).setIcon(ic.getIcon(5,60));
                     ((groupOfBoxes) frame.youransBoxes[numGuesses]).setBoxIcon(codeInputArr.size() - 1,
                             ic.getIcon(5, 60));
                 }
@@ -90,7 +82,6 @@ public class App extends GameLogic {
 
                 /* when game is over */
                 if (guessedCorrectly) {
-                    System.out.println("hu");
                     for (int i = 0; i < 5; i++) {
                         frame.showAns(i, ic.getIcon(secretCode[i], 80));
                         frame.showScore(calculatePoints(numGuesses, guessedCorrectly, feedback[0], feedback[1]));
@@ -100,6 +91,20 @@ public class App extends GameLogic {
                 codeInputArr.clear();
             }
         });
+
+        frame.deleteButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (codeInputArr.size() < 1) {
+                    return;
+                }
+                codeInputArr.remove(codeInputArr.size()-1);
+                ((groupOfBoxes) frame.youransBoxes[numGuesses]).setBoxIcon(codeInputArr.size(),
+                            ic.getTmpIcon(60));
+            }
+            
+        });
+
 
         frame.newGameButton.addActionListener(new ActionListener() {
             @Override
@@ -115,28 +120,13 @@ public class App extends GameLogic {
                 frame.setInputAnsPanel();
                 frame.setDefaltAnsPanel();
                 frame.scoreTextField.setText("0");
-
             }
         });
-
     }
 
     private void showCheckedTf() {
         frame.positionTf[numGuesses - 1].setText("" + feedback[0]);
         frame.elementTf[numGuesses - 1].setText("" + feedback[1]);
     }
-
-    // private void method1() {
-    //     // frame.get_yourAnsBox(0, 0);
-    //     JLabel x = frame.get_yourAnsBox(0, 0);
-        
-    //     x.addMouseListener(new MouseAdapter() {
-    //         public void mouseClicked(MouseEvent e) {
-    //             codeInputArr.remove(0);
-    //             codeInputArr.add(0, 80);
-    //         }
-    //     });
-
-    // }
 
 }
