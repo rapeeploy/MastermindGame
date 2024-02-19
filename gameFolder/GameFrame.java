@@ -45,6 +45,10 @@ public class GameFrame extends JFrame {
     private JPanel infoPanel;
     protected JLabel infoLabel;
 
+    protected JLabel introducLabel;
+    private JPanel introducePanel;
+    protected JButton closeIntro = new JButton();
+
     // * ช่องบอกว่าถูกกี่สี/กี่ตำแหน่ง */
     protected JTextField positionCheckField;
     protected JTextField elementCheckField;
@@ -67,7 +71,8 @@ public class GameFrame extends JFrame {
         hPanel.setBackground(new Color(30, 38, 60));
 
         header.setFont(new Font(null, 1, 50));
-        header.setForeground(new Color(246, 251, 69));
+        // header.setForeground(new Color(246, 251, 69));
+        header.setIcon(new ImageIcon("gameImage\\header.png"));
         hPanel.add(header);
 
         ansPanel = new JPanel();
@@ -91,7 +96,23 @@ public class GameFrame extends JFrame {
         scorePanel.setBounds(255 + 930, 120, 255, 810 - 120);
         scorePanel.setBackground(null);
 
+        introducePanel = new JPanel();
+        introducePanel.setBackground(null);
+        introducePanel.setBounds(180,70,1080,670);
+
+        closeIntro.setText("Continue");
+        closeIntro.setBackground(new Color(255,149,181));
+        closeIntro.setPreferredSize(new Dimension(100,50));
+        
+        introducLabel = new JLabel();
+        introducLabel.setIcon(new ImageIcon("gameImage\\welcome.jpg"));
+        introducePanel.add(introducLabel);
+        introducePanel.add(closeIntro);
+        
+        setVisibleAllPanel(false);
         // *add all panels to frame */
+        this.add(introducePanel);
+
         this.add(hPanel);
         this.add(ansPanel);
         this.add(checkAnsPanel);
@@ -104,6 +125,16 @@ public class GameFrame extends JFrame {
         setCheckAnsPanel();
         setBtnPanels();
         setScorePanels();
+    }
+
+    protected void setVisibleAllPanel(boolean x) {
+        introducePanel.setVisible(!x);
+        hPanel.setVisible(x);
+        ansPanel.setVisible(x);
+        checkAnsPanel.setVisible(x);
+        inputAnsPanel.setVisible(x);
+        btnPanel.setVisible(x);
+        scorePanel.setVisible(x);
     }
 
     protected void setDefaltAnsPanel() {

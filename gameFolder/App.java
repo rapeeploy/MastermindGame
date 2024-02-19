@@ -23,6 +23,19 @@ public class App extends GameLogic {
 
     private void addActionListenerToBtn() {
 
+        frame.closeIntro.addActionListener(new ActionListener() {
+            int i = 1;
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.introducLabel.setIcon(new ImageIcon("gameImage\\introduce.png"));
+                if (i == 2) {
+                    frame.setVisibleAllPanel(true);
+                }
+                i++;
+            }
+            
+        });
+
         ActionListener btnAction = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
