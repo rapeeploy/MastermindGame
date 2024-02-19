@@ -2,15 +2,13 @@ package gameFolder;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
+// import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
 public class App extends GameLogic {
     GameFrame frame = new GameFrame("Mastermindcat");
-    static ArrayList<Integer> codeInputArr = new ArrayList<>();
-
     myIcon ic = new myIcon();
 
     public App() {

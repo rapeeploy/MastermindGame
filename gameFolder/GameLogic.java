@@ -12,13 +12,13 @@ public class GameLogic {
     boolean guessedCorrectly = false;
     int[] feedback;
     
-    static ArrayList<Integer> codeInputArr = new ArrayList<>();
+    protected ArrayList<Integer> codeInputArr = new ArrayList<>();
 
     //* 5 from 6 */
     protected static int[] generateSecretCode() {
         int[] code = new int[CODE_LENGTH];
         for (int i = 0; i < CODE_LENGTH; i++) {
-            code[i] = (int) (Math.random() * 6); // Generates a random number between 0 and 5
+            code[i] = (int) (Math.random() * 6); //Generates a random number between 0 and 5
         }
         printCode(code);
         return code;
@@ -27,7 +27,7 @@ public class GameLogic {
     protected void playGame() {
         if (!guessedCorrectly) {
             System.out.println("Enter your guess (e.g., 0 1 2 3 4):");
-            ArrayList<Integer> guess = App.codeInputArr;
+            ArrayList<Integer> guess = codeInputArr;
             System.out.println("your submitted "+guess);
 
             if (guess == null || guess.size() != 5) {
@@ -50,11 +50,9 @@ public class GameLogic {
             return;
         } else if(MAX_GUESSES - numGuesses == 0) {
             System.out.println("Sorry, you've run out of guesses. The secret code was:");
-            printCode(secretCode);
-            // guessedCorrectly = true;
+            // printCode(secretCode);
             return;
         }
-
     }
 
     protected static boolean checkGuess(int[] secretCode, ArrayList<Integer> guess) {
@@ -104,7 +102,6 @@ public class GameLogic {
             // Guessed correctly after the first round
             return 30 - 2 * (numGuesses - 1);
         } else if (!guessedCorrectly) {
-            
             // Game ended without correct guess
             return (3 * exactMatches) + colorMatches;
         }
