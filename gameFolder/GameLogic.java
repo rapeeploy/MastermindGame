@@ -30,10 +30,10 @@ public class GameLogic {
             ArrayList<Integer> guess = codeInputArr;
             System.out.println("your submitted "+guess);
 
-            if (guess == null || guess.size() != 5) {
-                System.out.println("Invalid input. Please enter " + CODE_LENGTH + " numbers.");
-                return;
-            }
+            // if (guess == null || guess.size() != 5) {
+            //     System.out.println("Invalid input. Please enter " + CODE_LENGTH + " numbers.");
+            //     return;
+            // }
 
             guessedCorrectly = checkGuess(secretCode, guess);
             feedback = generateFeedback(secretCode, guess);
@@ -109,6 +109,7 @@ public class GameLogic {
         return 999;
     }
     
+    //*print ไว้ check ใน terminal */
     protected static void printCode(int[] code) {
         for (int color : code) {
             System.out.print(color + " ");
