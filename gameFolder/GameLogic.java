@@ -106,7 +106,7 @@ public class GameLogic {
             return (3 * exactMatches) + colorMatches;
         }
 
-        return 999;
+        return 0;
     }
     
     //*print ไว้ check ใน terminal */
