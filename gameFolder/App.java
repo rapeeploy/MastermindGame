@@ -40,7 +40,7 @@ public class App extends GameLogic {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                if (codeInputArr.size() >= 5) {
+                if (codeInputArr.size() >= 5 || guessedCorrectly) {
                     return;
                 }
 
