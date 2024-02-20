@@ -123,12 +123,12 @@ public class App extends GameLogic {
                 secretCode = generateSecretCode();
                 guessedCorrectly = false;
                 for (int i = 0; i < 7; i++) {
-                    frame.positionTf[i].setText("0");
-                    frame.elementTf[i].setText("0");
+                    frame.positionTf[i].setText(" ");
+                    frame.elementTf[i].setText(" ");
                 }
                 frame.setInputAnsPanel();
                 frame.setDefaltAnsPanel();
-                frame.scoreTextField.setText("0");
+                frame.scoreTextField.setText(" ");
             }
         });
     }

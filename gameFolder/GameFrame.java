@@ -266,7 +266,7 @@ public class GameFrame extends JFrame {
         scoreLabel.setPreferredSize(new Dimension(150, 20));
 
         scoreTextField = new JTextField();
-        scoreTextField.setText("0");
+        scoreTextField.setText(" ");
         scoreTextField.setFont(new Font(null, 0, 50));
         scoreTextField.setBackground(null);
         scoreTextField.setHorizontalAlignment(JTextField.CENTER);
@@ -366,7 +366,7 @@ class CheckAnsField extends JTextField{
         this.setHorizontalAlignment(JTextField.CENTER);
         this.setPreferredSize(new Dimension(35,50));
         this.setFont(new Font(null, 0, 30));
-        this.setText("0");
+        this.setText(" ");
         this.setEditable(false);
     }
 }
